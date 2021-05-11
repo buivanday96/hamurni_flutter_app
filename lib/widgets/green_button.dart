@@ -1,45 +1,84 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hamurni_flutter_app/settings/color_setting.dart';
-import 'package:hamurni_flutter_app/settings/font_setting.dart';
 
 class GreenButton extends StatelessWidget {
   final Function onTap;
   final String text;
   final double width;
   final double height;
-
+  final Color borderColor;
+  final Color backgroundColor;
+  final TextStyle textStyle;
   const GreenButton({
     Key key,
     this.onTap,
-    this.text,
-    this.width = 133,
-    this.height = 48,
+    this.text = '',
+    this.width = 10,
+    this.height = 10,
+    this.borderColor = colorApp,
+    this.backgroundColor = colorApp,
+    this.textStyle,
   }) : super(key: key);
   @override
   Widget build(BuildContext context) {
+    return outlineBtn();
+  }
+
+  Widget normalBtn() {
     return Card(
-      color: colorApp,
+      color: backgroundColor,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(4.r),
       ),
       elevation: 0.0,
-      child: Container(
-        height: height.h,
-        width: width.w,
-        child: InkWell(
-          splashColor: Colors.grey,
-          borderRadius: BorderRadius.circular(4.r),
-          onTap: onTap,
+      child: InkWell(
+        splashColor: Colors.grey.withOpacity(0.5),
+        borderRadius: BorderRadius.circular(4.r),
+        onTap: onTap,
+        child: Container(
+          height: height,
+          width: width,
+          decoration: BoxDecoration(
+            border: Border.all(
+              color: borderColor,
+              width: 1.5.w,
+            ),
+            borderRadius: BorderRadius.circular(4.r),
+          ),
           child: Center(
             child: Text(
               text,
-              style: TextStyle(
-                color: Colors.white,
-                fontFamily: fontRoboto,
-                fontSize: 16.sp,
-              ),
+              style: textStyle,
             ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget outlineBtn() {
+    return Container(
+      width: width,
+      height: height,
+      child: OutlinedButton(
+        style: OutlinedButton.styleFrom(
+            primary: Colors.white,
+            padding: EdgeInsets.zero,
+            backgroundColor: backgroundColor,
+            side: BorderSide(
+              color: colorApp,
+              width: 1.2,
+            ),
+            textStyle: TextStyle(),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(4.r),
+            )),
+        onPressed: onTap,
+        child: Center(
+          child: Text(
+            text,
+            style: textStyle,
           ),
         ),
       ),
