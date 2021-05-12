@@ -31,8 +31,6 @@ class SplashView extends StatelessWidget {
             right: 24.w,
             child: _buildLanguage(),
           ),
-<<<<<<< HEAD
-=======
           Positioned(
             top: 114.h,
             right: 24.w,
@@ -49,20 +47,12 @@ class SplashView extends StatelessWidget {
               },
             ),
           ),
->>>>>>> d36650b... commit setup
         ],
       ),
     );
   }
 
   Widget _buildStart() {
-<<<<<<< HEAD
-    return GreenButton(
-      onTap: () {
-        print('tap');
-      },
-      text: start_btn.tr.toUpperCase(),
-=======
     return MyButton.elevated(
       width: 143.w,
       height: 48.h,
@@ -75,7 +65,6 @@ class SplashView extends StatelessWidget {
         color: Colors.white,
       ),
       onTap: () {},
->>>>>>> d36650b... commit setup
     );
   }
 
@@ -83,12 +72,6 @@ class SplashView extends StatelessWidget {
     return Container(
       child: Row(
         children: [
-<<<<<<< HEAD
-          GreenButton(
-            width: ,
-          ),
-        ],  
-=======
           MyButton.outlined(
             width: 48.w,
             height: 48.h,
@@ -119,7 +102,6 @@ class SplashView extends StatelessWidget {
             onTap: () {},
           ),
         ],
->>>>>>> d36650b... commit setup
       ),
     );
   }
